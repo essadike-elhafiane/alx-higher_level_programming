@@ -1,0 +1,98 @@
+The module 2-matrix_divided reduces matrices through division
+To use the module in another script, we have to import it:
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+>>> matrix = [
+... [1, 2, 3],
+... [4, 5, 6]
+... ]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+>>> matrix = [[2, 4, 6], [8, 10, float("nan")]]
+>>> matrix_divided(matrix, 2)
+[[1.0, 2.0, 3.0], [4.0, 5.0, nan]]
+
+>>> matrix = [[2, 4, 6], [8, 10, float("inf")]]
+>>> matrix_divided(matrix, 2)
+[[1.0, 2.0, 3.0], [4.0, 5.0, inf]]
+>>> matrix_divided(matrix, float("inf"))
+[[0.0, 0.0, 0.0], [0.0, 0.0, nan]]
+>>> matrix_divided(matrix, float("nan"))
+[[nan, nan, nan], [nan, nan, nan]]
+
+>>> matrix = [[2, 4, 6], [8, 10, 3]]
+>>> matrix_divided(matrix, float("inf"))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+
+The function matrix_divided takes 2 arguments,
+when less or more arguments are provided the
+program throws an error
+
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+>>> matrix_divided()
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+>>> matrix_divided(5)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+>>> matrix_divided(matrix, 3, 5)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+
+If the div is anthing but float or int, the program
+raise a TypeError:
+
+>>> matrix_divided(matrix, "3")
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number
+
+
+If the matrix doesn't have equal rows, a TypeError is raised by the program
+
+>>> matrix = [[2, 4, 6], [8, 10]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+  ...
+TypeError: Each row of the matrix must have the same size
+
+
+If the matrix contains a value that isn't an integer or float,
+the program thows a TypeError:
+
+>>> matrix = [[2, 4, 6], [8, 10, "14"]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+When the user supplies 0 as the divisor, the program throws a
+ZeroDivisionError:
+
+>>> matrix = [[2, 4, 6], [8, 10, 12]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
+
+
+The arguments supplied by the user must follow the order of the
+provided by the function definition:
+
+>>> matrix_divided(2, matrix)
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number

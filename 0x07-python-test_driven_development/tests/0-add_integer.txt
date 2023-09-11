@@ -1,0 +1,59 @@
+A test file for the module 0-add-integer
+========================================
+
+The program in the module is used to add 2 integers.
+However the inputs are first checked if they are
+integers of floats
+They are then casted into integer before being added
+together
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> sum_1 = add_integer(2.0, 8)
+>>> print(sum_1)
+10
+
+
+>>> sum_1 = add_integer("6", 8)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+
+>>> sum_3 = add_integer(6)
+>>> sum_3
+104
+
+
+>>> sum_4 = add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+>>> sum_5 = add_integer(3.457, "7")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+
+>>> sum_5 = add_integer(3.457, 7.8976)
+>>> sum_5
+10
+
+
+>>> sum_6 = add_integer(3.457, 7.8976, 9)
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+
+>>> add_integer(float("nan"))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+
+>>> add_integer(float("inf"))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer

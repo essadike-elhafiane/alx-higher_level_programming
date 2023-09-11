@@ -1,0 +1,33 @@
+Documentation for module 3-say_my_name
+======================================
+
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("Amani", "Mavu")
+My name is Amani Mavu
+
+>>> say_my_name("Amani", 1)
+Traceback (most recent call last):
+  ...
+TypeError: last_name must be a string
+
+>>> say_my_name(12, "Amani")
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+>>> say_my_name(12)
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+>>> say_my_name({"Mavu"},"Amani")
+Traceback (most recent call last):
+  ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Amani") #doctest: +NORMALIZE_WHITESPACE
+My name is Amani
+
+>>> say_my_name()
+Traceback (most recent call last):
+  ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
