@@ -1,0 +1,36 @@
+Documentation for module 1-my_list
+==================================
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> my_list.append(3)
+>>> print(my_list)
+[2, 1, 4, 5, 3]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> my_list
+[2, 1, 4, 5, 3]
+
+>>> my_list_3 = MyList()
+>>> print(my_list_3)
+[]
+>>> my_list_3.print_sorted()
+[]
+
+>>> my_list_2 = MyList()
+>>> my_list_2.append(-7)
+>>> my_list_2.append(0)
+>>> my_list_2.append(10)
+>>> my_list_2.append(-25)
+>>> my_list_2.append(145)
+>>> my_list_2
+[-7, 0, 10, -25, 145]
+>>> my_list_2.print_sorted()
+[-25, -7, 0, 10, 145]
+>>> print(my_list_2)
+[-7, 0, 10, -25, 145]
